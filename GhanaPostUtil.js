@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const {TimeoutError} = require('puppeteer/Errors');
-const AddressCache = require("../models/DigitalAddressCache");
+const AddressCache = require("./models/DigitalAddressCache");
 
 async function checkCacheForDigitalAddress(digitalAddress) {
     let address = await AddressCache.findById(digitalAddress);

@@ -1,0 +1,5 @@
+
+###Test student login
+GET http://localhost:3001/api/digital_address/GN-0920-6217
+Content-Type: application/json
+

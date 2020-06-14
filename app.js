@@ -9,10 +9,26 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dg_addres
     process.exit(0);
 });
 
+const GHPostUtil = require("./GhanaPostUtil");
 
 
-app.get("/api/digitalAddress", async (req, res)=> {
 
+app.get("/api/digital_address/:address", async (req, res)=> {
+
+    let address = req.params.address;
+    console.log(req.params.address);
+    try{
+        let locationData = await GHPostUtil.grabAddressInfo(address, {
+            timeout: 20000
+        });
+
+        res.send(locationData);
+    }
+    catch (e) {
+        res.send(e);
+    }
+
+    //res.send("ack!")
 });
 
 
